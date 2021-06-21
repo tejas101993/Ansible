@@ -1,0 +1,13 @@
+--- #Handler yaml
+- hosts: demo
+  user: ansible
+  become: yes
+  connection: ssh
+
+  tasks:
+          - name: Install VSFTPD on node1 and node2
+            action: yum name=vsftpd state=installed
+            notify: rest vsftpd
+  handlers:
+          - name: rest vsftpd
+            action: service name=vsftpd state=restarted

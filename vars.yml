@@ -1,0 +1,14 @@
+--- # Varible Playbook
+- hosts: demo
+  user: ansible
+  become: yes
+  connection: ssh
+  gather_facts: yes
+
+  vars:
+          pkgname: tree
+
+  tasks:
+          - name: Installed tree package
+            action: yum name='{{pkgname}}' state=present 
+

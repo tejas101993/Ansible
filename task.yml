@@ -1,0 +1,10 @@
+--- # target and task yaml
+- hosts: demo
+  user: ansible
+  become: yes
+  connection: ssh
+  gather_facts: yes
+
+  tasks:
+          - name: Remove httpd from node1 and node2
+            action: yum name=httpd state=present

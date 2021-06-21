@@ -1,0 +1,13 @@
+--- # Loops playbook
+- hosts: demo
+  user: ansible
+  become: yes
+  connection: ssh
+
+  tasks:
+          - name: Create users
+            user: name='{{item}}' state=present
+            with_items:
+                    - ram
+                    - tej
+                    - dips
